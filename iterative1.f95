@@ -1,6 +1,7 @@
 program iterative1
 
 phi(x) = (sin(x) + 10)/10
+!phi(x) = x**3 - 1
 
 write(*,'(A, 1X)', ADVANCE = 'NO') "Please enter two space separated limiting points"
 read (*, *) xl, xh
@@ -10,7 +11,7 @@ del = 1
 do while (abs(del) > eps)
 	if (xl > xh) then
 		write(*,*) "Limit exceeded and not converged"
-		EXIT
+		STOP
 	end if
 	xl_new = phi(xl)
 	del = (xl_new - xl)/xl

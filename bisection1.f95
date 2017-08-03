@@ -7,6 +7,10 @@ real :: mid, mid_new, hi, low
 write(*,'(A, 1X)', ADVANCE = 'NO') "Please enter two space separated end points:"
 read (*, *) hi, low
 
+if(f(hi)*f(low) > 0) then
+    write(*,*) "Bisection method cannot find a root between specified points. Please enter another guess and run again."
+end if
+
 mid  = (low + hi)/2.0
 
 eps = 1.0E-07

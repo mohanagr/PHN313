@@ -1,8 +1,8 @@
 program newton1
 
-f(x) = x*sin(x) + cos(x)
+f(x) = 4*exp(-x)*sin(x) - 1
 
-f_prime(x) = x*cos(x)
+f_prime(x) = 4.0 *exp(-x)*(cos(x) - sin(x))
 
 write(*,'(A, 1X)', ADVANCE = 'NO') "Please enter an initial guess:"
 read (*, *) x
