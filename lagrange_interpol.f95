@@ -16,6 +16,7 @@ function Lagrange(datafile, xx)
 	do
 		!write(*,*) 'reading...'
 		read(8, '(2f11.5)', IOSTAT=stat) x(index), y(index)
+		write(9, '(2f11.5)') x(index), y(index)
 		!write(*,*) x(index), y(index)
 		if (stat < 0) then
 			exit
