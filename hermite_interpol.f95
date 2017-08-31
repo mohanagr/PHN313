@@ -14,6 +14,7 @@ function hermite(datafile, xx, y_prime)
 	integer :: stat
 	index = 1
 	open(unit=8, file='hermite_interpol.in', status='unknown')
+
 	do
 		!write(*,*) 'reading...'
 		read(8, '(2f11.5)', IOSTAT=stat) x(index), y(index)
@@ -27,8 +28,11 @@ function hermite(datafile, xx, y_prime)
 			index = index + 1
 		end if
 	end do
+
 	close(8)
+
 	n = index - 1
+	
 	do i = 1, n
 		Li = 1.0
 		Li_prime = 0.0
@@ -41,6 +45,7 @@ function hermite(datafile, xx, y_prime)
 		end do
 		fn = fn + ((1 - 2*(xx - x(i)) * Li_prime) * ((Li)**2) * y(i) + (xx - x(i)) * ((Li)**2) * f_prime(x(i)))
 	end do
+	
 	hermite = fn
 	return
 end function hermite
