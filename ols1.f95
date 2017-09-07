@@ -1,28 +1,15 @@
 program ols
-
+	external linenumber
 	real:: x(50), y(50), beta(0:50), rmse
 	integer :: stat
 	write(*,'(A, 1X)', ADVANCE = 'NO') "Please enter x value where to predict:"
 	read (*, *) xx
 
-	index = 1
+	n = linenumber('ols1.in')
+	write(*,*) n, "lines"
 	open(unit=8, file='ols1.in', status='unknown')
-	do
-		!write(*,*) 'reading...'
-		read(8, '(2f11.5)', IOSTAT=stat) x(index), y(index)
-		!write(9, '(2f11.5)') x(index), y(index)
-		!write(*,*) x(index), y(index)
-		if (stat < 0) then
-			exit
-		else if (stat > 0) then
-			write(*,*) "Something went wrong while reading the file!"
-			exit
-		else
-			index = index + 1
-		end if
-	end do
+	read(8, '(2f11.5)', IOSTAT=stat) x(index), y(index)
 	close(8)
-	n = index - 1
 
 	do i = 1, n
 		y(i) = log(y(i))
