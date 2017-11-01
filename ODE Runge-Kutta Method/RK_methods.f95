@@ -1,8 +1,8 @@
-subroutine RK1(x, y, x0, y0, xf, n)
-! Solve first order ODE of type
+
+
 ! dy/dx = f(x, y)
 ! Assumes external funtion "f"
-
+	external :: f1
 	real, dimension(0:50) :: x, y
 	real k1, k2, k3, k4
 
@@ -47,8 +47,4 @@ end subroutine
 
 ! end subroutine
 
-function f1(x, y)
-	f1 = -2.2067E-12*(y**4 - 81E08)
-	return
-end function
 

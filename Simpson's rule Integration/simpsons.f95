@@ -27,10 +27,11 @@ do j = 1, iter
 	do i = 1, n-1, 2
 		area = area + 4 * f(x(i)) + 2 * f(x(i+1))
 	end do
-	area = ((area + f(a) + f(b))*h)/(3.0)
+	area = ((area + f(a) - f(b))*h)/(3.0)
 
-	write(*,'(A, f9.6)') "Estimated integral is ", area
-	write(*,'(A, f9.6)') "Absoulte relative error is ", abs((area_real - area)/area_real)
+	write(*,'(A, f11.6)') "Estimated integral is ", area
+	write(*,'(A, f11.6)') "Absoulte relative error is ", abs((area_real - area)/area_real)
+	write(*,'(A, f11.6)') "Real area is ", area_real
 	n = n + 1000
 end do
 

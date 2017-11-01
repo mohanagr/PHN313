@@ -18,7 +18,7 @@ subroutine gauss_seidel(A, X, B, n, niter, outfile)
 			Xini = X(j) 
 			X(j) = (B(j) - s)/A(j,j)
 			!write(*,*) "X", j, "is", X(j), "Xini is ", Xini
-			err(j) = abs( (X(j) - Xini)/X(j) )
+			err(j) = abs( (X(j) - Xini)/X(j) ) * 100
 		end do
 		write(10, '(6F10.4)') (X(m), err(m), m = 1, n)
 	end do

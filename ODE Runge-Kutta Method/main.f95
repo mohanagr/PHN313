@@ -16,6 +16,11 @@ program rungekutta
 
 end program rungekutta
 
+function f1(x, y)
+	f1 = -2.2067E-12*(y**4 - 81E08)
+	return
+end function
+
 	
 
 
